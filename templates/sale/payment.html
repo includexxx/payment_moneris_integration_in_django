@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Make payment</h1>
+    <h2>Pay with Moneris</h2>
+    <form method="POST" action="{{form.url}}">{% csrf_token %}
+        <input type="hidden" name="ps_store_id" value="{{form.ps_store_id}}"/>
+        <input type="hidden" name="hpp_key" value="{{form.hpp_key}}"/>
+        <input type="hidden" name="charge_total" value="{{form.charge_total}}"/>
+         <input type="hidden" name="order_id" value="{{form.order_id}}"/>
+        <button type="submit" class="btn btn-primary">Pay</button>
+    </form>
+{% endblock %}

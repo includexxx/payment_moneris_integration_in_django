@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Moneris List</h1>
+    <div class="float-right">
+        <h1>New</h1>
+        <a href="{% url 'moneris:moneris_create' %}" >Create new store</a>
+    </div>
+
+    <ol>
+        {% for object in object_list %}
+            <li><a href="{% url 'moneris:moneris_detail' pk=object.id %}">{{object.name}}</a></li>
+        {% endfor %}
+    </ol>
+
+{% endblock %}

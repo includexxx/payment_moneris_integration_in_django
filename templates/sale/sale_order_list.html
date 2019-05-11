@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Sale Order List</h1>
+    <div class="float-right">
+        <h1>New</h1>
+        <a href="{% url 'sale:sale_order_create' %}" >Create new sale order</a>
+    </div>
+ <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">sale_order</th>
+                <th scope="col">payment_acquire</th>
+                <th scope="col">payment</th>
+                <th scope="col">price</th>
+            </tr>
+        </thead>
+         <tbody>
+         {% for object in object_list %}
+            <tr>
+
+              <td>{{object.sale_order}}</td>
+              <td>{{object.payment_acquire}}</td>
+              <td>{{object.payment}}</td>
+                <td>{{object.price}}</td>
+            </tr>
+         {% endfor %}
+         </tbody>
+    </table>
+
+{% endblock %}
